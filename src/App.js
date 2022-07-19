@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import ServiceAdd from './components/ServiceAdd';
+import ServiceFilter from './components/ServiceFilter';
+import ServiceList from './components/ServiceList';
 
 function App() {
+  const toggleCancelBtn = () => {
+    const btnReset = document.querySelector('.btn-reset');
+    btnReset.classList.toggle('active');
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ServiceFilter />
+      <ServiceAdd toggleCancelBtn={toggleCancelBtn} />
+      <ServiceList toggleCancelBtn={toggleCancelBtn} />
     </div>
   );
 }
